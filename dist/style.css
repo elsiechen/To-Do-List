@@ -53,11 +53,43 @@ body {
     display: flex;
 }
 
+.sidebar, 
+.home {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 .sidebar {
     width: 20vw;
     min-height: 75vh;
     background-color: rgb(10, 77, 104);
     font-family: 'Alata', sans-serif;
+    font-size: 1rem;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: block;
+    border-bottom: 2px solid white;
+}
+
+.all, .add-project, footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.projects {
+    margin-top: 2rem;
+}
+
+.add-project svg {
+    fill: white;
 }
 
 .content {
@@ -70,11 +102,8 @@ footer {
     /* margin-top: auto; */
     height: 10vh;
     background-color:  rgb(8, 131, 149);
-    display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
     font-family: 'Hug', sans-serif;
 }
 
