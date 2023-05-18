@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Hug';
-    src: url('./font/sweets.woff') format('woff'),
-         url('./font/sweets.woff2') format('woff2');
+    src: url('./fonts/hug.woff') format('woff'),
+         url('./fonts/hug.woff2') format('woff2');
 }
 
 body {
@@ -54,7 +54,8 @@ body {
 }
 
 .sidebar, 
-.home {
+.home,
+.projectForm {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -78,7 +79,7 @@ body {
     border-bottom: 2px solid white;
 }
 
-.all, .add-project, footer {
+.all, .add-project, footer{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -95,7 +96,7 @@ body {
 .content {
     width: 80vw;
     min-height: 75vh;
-    background-color: #E7E5E4;;
+    background-color: #E7E5E4;
 }
 
 footer {
@@ -110,4 +111,58 @@ footer {
 footer img {
     width: 2rem;
     height: 2rem;
+}
+
+/* project form */
+.add-project {
+    padding: 10px;
+}
+
+.add-project:hover {
+    background-color: rgb(8, 131, 149);
+    cursor: pointer;
+}
+
+.projectContent {
+    
+}
+
+.projectForm {
+    padding: 0.5rem;
+    background-color: #E7E5E4;
+    border-radius: 5px;
+    gap: 1rem;
+}
+
+.projectInput {
+    display: block;
+    padding: 0.5rem;
+    border: none;
+}
+
+.btnContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.createBtn,
+.cancelBtn {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.createBtn:hover,
+.cancelBtn:hover {
+    cursor: pointer;
+}
+
+.createBtn {
+    background-color: rgb(8, 131, 149);
+}
+
+.cancelBtn {
+    background-color: rgb(238, 37, 37);
 }
