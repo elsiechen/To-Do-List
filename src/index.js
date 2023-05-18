@@ -1,5 +1,5 @@
-const h1 = document.querySelector('h1');
+const sidebar = document.querySelector('.sidebar');
 
 const test = document.createElement('div');
 test.textContent = 'to do item';
-h1.appendChild(test);
+sidebar.appendChild(test);
