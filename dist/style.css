@@ -3,7 +3,50 @@ h1 {
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+body {
     font-family: 'Alata', sans-serif;
     font-family: 'Concert One', cursive, monospace;
     font-family: 'Kanit', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: rgb(8, 131, 149);
+    height: 20vh;
+}
+
+.main {
+    
+}
+
+.sidebar {
+    width: 20vw;
+    background-color: rgb(10, 77, 104);
+}
+
+.content {
+    background-color: rgb(240, 240, 240);
+}
+
+footer {
+    margin-top: auto;
+    /* height: 10vh; */
+    background-color:  rgb(8, 131, 149);
+}
+
+img {
+    width: 2rem;
+    height: 2rem;
 }
