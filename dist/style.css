@@ -31,6 +31,21 @@ body {
     height: 15vh;
     /* font-family: 'Concert One', cursive, monospace; */
     font-family: 'Hug', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 3rem;
+    font-weight: bolder;
 }
 
 .main {
@@ -63,7 +78,7 @@ footer {
     font-family: 'Hug', sans-serif;
 }
 
-img {
+footer img {
     width: 2rem;
     height: 2rem;
 }
