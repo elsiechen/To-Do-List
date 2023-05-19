@@ -1,3 +1,5 @@
+import { processProjectInput } from "./project";
+
 const sidebar = document.querySelector('.sidebar');
 const addProjectBtn = document.querySelector('.add-project');
 
@@ -63,11 +65,11 @@ const eventListeners = () => {
     addProjectBtn.addEventListener('click',showForm);
 
     const createBtn = document.querySelector('.createBtn');
-    createBtn.addEventListener('click', hideForm);
+    createBtn.addEventListener('click', processProjectInput);
 
     const cancelBtn = document.querySelector('.cancelBtn');
     cancelBtn.addEventListener('click', hideForm);
 };
 
 
-export  { renderProjectForm, eventListeners };
+export  { renderProjectForm, hideForm, eventListeners };
