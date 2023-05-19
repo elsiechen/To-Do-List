@@ -1,14 +1,13 @@
 const storage = (key, value) => {
     const save = () => {
-        localStorage.setItem(key, JSON.stringify(value));
-        console.log(`save ${value} to ${key}`);
-    };
-    
-    const get = () => {
-        return JSON.parse(localStorage.getItem(key));
-    };
-    
-    return { save, get };
+        const serializedArray = JSON.stringify(value);
+        localStorage.setItem(key, serializedArray);
+    }
+    return { save };
 };
 
-export { storage };
+const getStorage = (key) => {
+    return  JSON.parse(localStorage.getItem(key));
+};
+
+export { storage, getStorage };
