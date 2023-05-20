@@ -166,3 +166,8 @@ footer img {
 .cancelBtn {
     background-color: rgb(238, 37, 37);
 }
+
+/* project content */
+.projectContainer {
+    display: flex;
+}
