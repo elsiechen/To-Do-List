@@ -35,7 +35,9 @@ const renderProjects = () => {
     let projectList = getStorage('projectList');
 
     const projectContent = document.querySelector('.projectContent');
-    
+    // clear project content
+    projectContent.innerHTML = '';
+    // render new project content
     for(let i = 0; i < projectList.length; i++){
         const projectContainer = document.createElement('div');
         const projectName = document.createElement('div');
@@ -43,7 +45,9 @@ const renderProjects = () => {
         const svgContainer = document.createElement('div');
 
         projectContainer.classList.add('projectContainer');
-        
+        // set project id to specific project container
+        projectContainer.setAttribute('data-project-id', i);
+
         projectName.textContent = projectList[i].name;
         projectLength.textContent = projectList[i].length;
         projectLength.classList.add('projectLength');
