@@ -62,11 +62,6 @@ body {
     gap: 1rem;
 }
 
-/* .home {
-    display: flex;
-    flex-direction: column;
-} */
-
 .sidebar {
     width: 20vw;
     min-height: 75vh;
