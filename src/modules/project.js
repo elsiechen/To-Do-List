@@ -63,4 +63,19 @@ const renderProjects = () => {
     }
 };
 
-export { processProjectInput, renderProjects };
+const projectEventListener = () => {
+    const projectList = getStorage('projectList');
+    const projects = document.querySelectorAll('.projectContainer');
+    projects.forEach(project => {
+        const currentProjectId = project.getAttribute('data-project-id');
+        console.log(project);
+        console.log(currentProjectId);
+         
+        project.addEventListener('click', () => {
+            // save current project id to local storage 
+            storage('currentProjectId', currentProjectId).override();
+            console.log(`save ${currentProjectId} to local storage`) 
+        });
+    });
+};
+export { processProjectInput, renderProjects, projectEventListener };

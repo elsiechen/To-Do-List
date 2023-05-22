@@ -1,4 +1,5 @@
 const storage = (key, value) => {
+    // Save new object to array
     const save = () => {
         const getArray = getStorage(key);
         // Important: to store the modified array to local storage,
@@ -11,8 +12,12 @@ const storage = (key, value) => {
         getArray.push(value);
         const serializedArray = JSON.stringify(getArray);
         localStorage.setItem(key, serializedArray);
-    }
-    return { save };
+    };
+    // override old value to key
+    const override = () => {
+        localStorage.setItem(key, value);
+    };
+    return { save, override };
 };
 
 const getStorage = (key) => {
