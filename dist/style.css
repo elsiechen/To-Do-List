@@ -196,3 +196,9 @@ footer img {
     flex-wrap: wrap;
     gap: 1rem;
 }
+
+.add-task:hover,
+.createTaskBtn,
+.cancelTaskBtn {
+    cursor: pointer;
+}

@@ -3,6 +3,7 @@ import { renderProjects, projectEventListener } from './modules/project';
 
 renderProjects();
 renderProjectForm();
+
 eventListeners();
 projectEventListener();
 

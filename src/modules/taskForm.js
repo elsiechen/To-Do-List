@@ -12,8 +12,9 @@ const RenderTasks = () => {
     console.log(currentProjectId);
     console.log(typeof currentProjectId);
     
-    // solution to problem: if currentProjectId is 0 (first project)
+    // problem: if currentProjectId is 0 (first project)
     //  in localStorage, it became [] and typeof object  
+    // cause: [0]?
     // if(typeof currentProjectId !== 'number') {
     //     currentProject = projectList[0];
     //     console.log(currentProject);
@@ -47,13 +48,66 @@ const RenderAddTaskBtn = () => {
 
     content.appendChild(addTaskContainer);
 };
-// const RenderTaskForm = () => {
-//     const taskContainer = document.createElement('div');
-//     taskContainer.classList.add('taskContainer');
 
-// };
+const RenderTaskForm = () => {
+    // const taskFormContainer = document.createElement('div');
+    // const form = document.createElement('form');
+    // const nameDiv = document.createElement('div');
+    // const nameLabel = document.createElement('label');
+    // const nameInput = document.createElement('input')
+    // const descriptionDiv = document.createElement('div');
+    // const descriptionLabel = document.createElement('label');
+    // const dueDiv = document.createElement('div');
+    // const dueLabel = document.createElement('label');
+    // const priorityDiv = document.createElement('div');
+    // const priorityLabel = document.createElement('label');
+    
+    const taskFormContainer = document.createElement('div')
+    taskFormContainer.classList.add('taskFormContainer');
+
+    taskFormContainer.innerHTML = `<form action="" method="">
+    <div class="form-control">
+        <div>
+            <label for="first-name">FIRST NAME *</label>
+            <input type="text" name="first-name" id="first-name" required placeholder="Jack"
+                minlength="2" maxlength="20">
+        </div>
+        <div>
+            <label for="last-name">LAST NAME *</label>
+            <input type="text" name="last-name" id="last-name" required 
+                placeholder="Ryan" minlength="2" maxlength="20">
+        </div>
+        <div>
+            <label for="email">EMAIL *</label>
+            <input type="email" name="email" id="email" required 
+                placeholder="example@gmail.com">
+        </div>
+        <div>
+            <label for="phone">PHONE NUMBER</label>
+            <input type="tel" name="phone" id="phone" placeholder="860 123 1234" 
+                pattern="\d{10}" title="Provide telephone number in this format: 860 123 1234 ">
+        </div>
+        <div>
+            <label for="pwd">PASSWORD *</label>
+            <input type="password" name="pwd" id="pwd" required
+                minlength="8" maxlength="20">
+        </div>
+        
+    </div>
+    <div class="btnContainers">
+        <div>
+            <button type="button" class="createTaskBtn">CREATE TASK</button>
+        </div>
+        <div>
+            <button type="button" class="cancelTaskBtn">CANCEL</button>
+        </div>
+    </div>
+    `;
+    
+    content.appendChild(taskFormContainer);
+};
 
 
 
 
-export { RenderTasks, RenderAddTaskBtn };
+export { RenderTasks, RenderAddTaskBtn, RenderTaskForm };

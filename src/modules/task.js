@@ -1,3 +1,4 @@
+import { RenderAddTaskBtn, RenderTaskForm } from "./taskForm";
 
 const task = (name, description, dueDay, priority = 'Medium', completed = false) => {
     let _name = name;
@@ -23,4 +24,36 @@ const task = (name, description, dueDay, priority = 'Medium', completed = false)
 const processTaskInput = () => {
     
 };
+
+const taskEventListener = () => {
+    const addTaskContainer = document.querySelector('.add-task');
+
+    addTaskContainer.addEventListener('click', () => { 
+        addTaskContainer.style.display = 'none';
+        RenderTaskForm();
+        taskFormEventListener();
+    });
+};
+
+const taskFormEventListener = () => {
+    const createTaskBtn = document.querySelector('.createTaskBtn');
+    const cancelTaskBtn = document.querySelector('.cancelTaskBtn');
+    const addTaskContainer = document.querySelector('.add-task');
+    const taskFormContainer = document.querySelector('.taskFormContainer');
+
+    createTaskBtn.addEventListener('click', () => {
+        console.log('create task btn clicked')
+        // RenderAddTaskBtn();
+        addTaskContainer.style.display = 'block';
+        taskFormContainer.remove();
+    });
+    cancelTaskBtn.addEventListener('click', () => {
+        console.log('cancel task btn clicked')
+        // RenderAddTaskBtn();
+        addTaskContainer.style.display = 'block';
+        taskFormContainer.remove();
+    })
+};
+
+export { taskEventListener };
 
