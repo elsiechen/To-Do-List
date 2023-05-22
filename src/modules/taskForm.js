@@ -97,13 +97,9 @@ const RenderTaskForm = () => {
                     <label for="low">LOW</label>
                 </div>
             </div>
-            <div class="btnContainer">
-                <div>
-                    <button type="button" class="createTaskBtn">CREATE TASK</button>
-                </div>
-                <div>
-                    <button type="button" class="cancelTaskBtn">CANCEL</button>
-                </div>
+            <div class="taskBtnContainer">
+                <button type="button" class="createTaskBtn">CREATE TASK</button>
+                <button type="button" class="cancelTaskBtn">CANCEL</button>
             </div>
         </div>
     
