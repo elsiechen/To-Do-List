@@ -85,6 +85,11 @@ body {
     gap: 1rem;
 }
 
+.add-project svg,
+.add-project div {
+    display: inline;
+}
+
 .projects {
     margin-top: 2rem;
 }
@@ -97,6 +102,8 @@ body {
     width: 80vw;
     min-height: 75vh;
     background-color: #E7E5E4;
+    color: black;
+    padding: 1rem;
 }
 
 footer {
@@ -203,8 +210,19 @@ footer img {
 .add-task {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
+    width: 15%;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+}
+.add-task div{
+    display: inline;
+}
+
+.add-div {
+    font-size: 24px;
 }
 
 .add-task:hover,
@@ -212,6 +230,16 @@ footer img {
 .cancelTaskBtn {
     cursor: pointer;
 }
+
+.add-task:hover {
+    color: white;
+    background-color: rgb(8, 131, 149);
+}
+
+.add-task:has(div:hover) div svg{
+    fill: white;
+}
+
 /* task form */
 .overlay {
     position: fixed;

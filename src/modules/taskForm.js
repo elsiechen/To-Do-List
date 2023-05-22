@@ -42,6 +42,7 @@ const RenderAddTaskBtn = () => {
     }
     // Add new add task btn
     addTaskContainer.classList.add('add-task');
+    addDiv.classList.add('add-div')
     addDiv.innerHTML = 'ADD TASK';
     addTaskContainer.appendChild(svg);
     addTaskContainer.appendChild(addDiv);
