@@ -1,5 +1,6 @@
 import { storage, getStorage } from './storage';
 import  { hideForm }  from './projectForm';
+import { RenderTasks, RenderAddTaskBtn } from './taskForm';
 
 // let projectList = localStorage.getItem('projectList');
 // projectList = projectList? JSON.parse(projectList): [];
@@ -75,6 +76,9 @@ const projectEventListener = () => {
             // save current project id to local storage 
             storage('currentProjectId', currentProjectId).override();
             console.log(`save ${currentProjectId} to local storage`) 
+            RenderTasks();
+            RenderAddTaskBtn();
+            
         });
     });
 };
