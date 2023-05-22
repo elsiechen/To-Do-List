@@ -189,3 +189,10 @@ footer img {
 .projectContainer {
     display: flex;
 }
+
+.add-task {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
