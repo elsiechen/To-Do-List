@@ -19,10 +19,14 @@ const storage = (key, value) => {
     };
     return { save, override };
 };
-
+// get array as value
 const getStorage = (key) => {
     return  JSON.parse(localStorage.getItem(key)) 
             || JSON.parse(JSON.stringify([]));
 };
+// get single number as value
+const getOneValue = (key) => {
+    return  JSON.parse(localStorage.getItem(key));
+};
 
-export { storage, getStorage };
+export { storage, getStorage, getOneValue };

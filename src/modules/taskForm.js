@@ -1,4 +1,4 @@
-import { getStorage } from "./storage";
+import { getStorage, getOneValue } from "./storage";
 
 
 const content = document.querySelector('.content');
@@ -6,10 +6,22 @@ const addTaskBtn = document.querySelector('.add-task');
 
 const RenderTasks = () => {
     const projectList = getStorage('projectList');
-    const currentProjectId = getStorage('currentProjectId');
-    const currentProject = projectList[currentProjectId];
+    const currentProjectId = getOneValue('currentProjectId');
+    let currentProject = projectList[currentProjectId];
+    console.log(projectList);
+    console.log(currentProjectId);
+    console.log(typeof currentProjectId);
+    
+    // solution to problem: if currentProjectId is 0 (first project)
+    //  in localStorage, it became [] and typeof object  
+    // if(typeof currentProjectId !== 'number') {
+    //     currentProject = projectList[0];
+    //     console.log(currentProject);
+    // }
+    console.log(`first project: ${projectList[0].name}`);
     console.log(`currentProject: ${currentProject} `)
-    console.log(`project: ${currentProject.name}`)
+    console.log(`current project name: ${currentProject.name}`)
+
     if(currentProject.tasks.length){
         console.log('at least 1 task(s)')
     }
