@@ -78,7 +78,7 @@ const RenderTaskForm = () => {
             </div>
             <div>
                 <label for="details">DETAILS: </label>
-                <textarea name="details" id="details" rows="4" cols="50">Practice 60 questions...
+                <textarea name="details" id="details" rows="4" cols="50">
                 </textarea>
             </div>
             <div>
@@ -91,20 +91,20 @@ const RenderTaskForm = () => {
                 <div class="priority">
                     <input type="radio" id="high" name="priority" value="HIGH">
                     <label for="high">HIGH</label>
-                    <input type="radio" id="medium" name="priority" value="MEDIUM">
-                    <label for="high">MEDIUM</label>
+                    <input type="radio" id="medium" name="priority" value="MEDIUM" checked>
+                    <label for="medium">MEDIUM</label>
                     <input type="radio" id="low" name="priority" value="LOW">
-                    <label for="high">LOW</label>
+                    <label for="low">LOW</label>
                 </div>
             </div>
             <div class="btnContainer">
-            <div>
-                <button type="button" class="createTaskBtn">CREATE TASK</button>
+                <div>
+                    <button type="button" class="createTaskBtn">CREATE TASK</button>
+                </div>
+                <div>
+                    <button type="button" class="cancelTaskBtn">CANCEL</button>
+                </div>
             </div>
-            <div>
-                <button type="button" class="cancelTaskBtn">CANCEL</button>
-            </div>
-        </div>
         </div>
     
     </div>
