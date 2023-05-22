@@ -62,7 +62,10 @@ const RenderTaskForm = () => {
     // const priorityDiv = document.createElement('div');
     // const priorityLabel = document.createElement('label');
     
+    const overlay = document.createElement('div');
     const taskFormContainer = document.createElement('div')
+    
+    overlay.classList.add('overlay'); 
     taskFormContainer.classList.add('taskFormContainer');
 
     taskFormContainer.innerHTML = `<form action="" method="">
@@ -104,6 +107,7 @@ const RenderTaskForm = () => {
     </div>
     `;
     
+    content.appendChild(overlay);
     content.appendChild(taskFormContainer);
 };
 

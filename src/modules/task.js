@@ -39,18 +39,20 @@ const taskFormEventListener = () => {
     const createTaskBtn = document.querySelector('.createTaskBtn');
     const cancelTaskBtn = document.querySelector('.cancelTaskBtn');
     const addTaskContainer = document.querySelector('.add-task');
+    const overlay = document.querySelector('.overlay');
+
     const taskFormContainer = document.querySelector('.taskFormContainer');
 
     createTaskBtn.addEventListener('click', () => {
         console.log('create task btn clicked')
-        // RenderAddTaskBtn();
         addTaskContainer.style.display = 'block';
+        overlay.remove();
         taskFormContainer.remove();
     });
     cancelTaskBtn.addEventListener('click', () => {
         console.log('cancel task btn clicked')
-        // RenderAddTaskBtn();
         addTaskContainer.style.display = 'block';
+        overlay.remove();
         taskFormContainer.remove();
     })
 };
