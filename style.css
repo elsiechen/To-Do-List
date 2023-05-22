@@ -202,9 +202,8 @@ footer img {
 .cancelTaskBtn {
     cursor: pointer;
 }
-
+/* task form */
 .overlay {
-    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -215,7 +214,7 @@ footer img {
 }
 
 .taskFormContainer {
-    /* display: none; */
+    color: black;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -223,4 +222,73 @@ footer img {
     background-color: #fff;
     padding: 20px;
     z-index: 10000;
+    width: 50vw;
+    /* height: 50vh; */
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+label[for="title"],
+label[for="details"],
+label[for="due"],
+label[for="priority"] {
+    display: block;
+    width: 100%;
+    font-size: 0.1rem;
+    color: rgb(146,145,145);
+}
+
+input[type="text"],
+input[type="date"] {
+    display: block;
+    width: 100%;
+    border: 1px solid #dddcdc;
+    border-radius: 0.3rem;
+    height: 1.3rem;
+    padding: 0.3rem 0.5rem;
+}
+
+.form-control div select {
+    display: block;
+    width: 100%;
+    border: 1px solid #dddcdc;
+    /* border-radius: 0.3rem; */
+    height: 1.3rem;
+    /* padding: 0.3rem 0.5rem; */
+}
+
+.form-control div textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid #dddcdc;
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.5rem;
+}
+
+/* use ':has' pseudo-class to change label color when input:focus */
+.form-control>div:has(input:focus) label,
+.form-control>div:has(textarea:focus) label,
+.form-control>div:has(.priority>input:focus) label{
+    color: black;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    box-shadow: 2px 2px 3px silver;
+}
+
+.form-control div .priority input[type="radio"],
+.form-control div .priority label {
+    /* display: inline-block; */
+}
+
+.btnContainer {
+    display: flex;
+
 }
