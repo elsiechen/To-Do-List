@@ -55,6 +55,12 @@ const taskFormEventListener = () => {
         overlay.remove();
         taskFormContainer.remove();
     })
+    // if overlay is clicked, remove overlay and form 
+    overlay.addEventListener('click', () => {
+        addTaskContainer.style.display = 'block';
+        overlay.remove();
+        taskFormContainer.remove();
+    });
 };
 
 export { taskEventListener };
