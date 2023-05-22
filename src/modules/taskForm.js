@@ -68,49 +68,55 @@ const RenderTaskForm = () => {
     overlay.classList.add('overlay'); 
     taskFormContainer.classList.add('taskFormContainer');
 
-    taskFormContainer.innerHTML = `<form action="" method="">
-    <div class="form-control">
-        <div>
-            <label for="first-name">FIRST NAME *</label>
-            <input type="text" name="first-name" id="first-name" required placeholder="Jack"
-                minlength="2" maxlength="20">
+    taskFormContainer.innerHTML = 
+    `<form action="" method="">
+        <div class="form-control">
+            <div>
+                <label for="title">TITLE: *</label>
+                <input type="text" name="title" id="title" required placeholder="LeetCode"
+                    minlength="2" maxlength="20" autofocus>
+            </div>
+            <div>
+                <label for="details">DETAILS: </label>
+                <textarea name="details" id="details" rows="4" cols="50">Practice 60 questions...
+                </textarea>
+            </div>
+            <div>
+                <label for="due">DUE DAY: *</label>
+                <input type="date" name="due" id="due" required 
+                    placeholder="05/22/2023">
+            </div>
+            <div>
+                <label for="priority">PRIORITY: *</label>
+                <div class="priority">
+                    <input type="radio" id="high" name="priority" value="HIGH">
+                    <label for="high">HIGH</label>
+                    <input type="radio" id="medium" name="priority" value="MEDIUM">
+                    <label for="high">MEDIUM</label>
+                    <input type="radio" id="low" name="priority" value="LOW">
+                    <label for="high">LOW</label>
+                </div>
+            </div>
+            <div class="btnContainer">
+            <div>
+                <button type="button" class="createTaskBtn">CREATE TASK</button>
+            </div>
+            <div>
+                <button type="button" class="cancelTaskBtn">CANCEL</button>
+            </div>
         </div>
-        <div>
-            <label for="last-name">LAST NAME *</label>
-            <input type="text" name="last-name" id="last-name" required 
-                placeholder="Ryan" minlength="2" maxlength="20">
         </div>
-        <div>
-            <label for="email">EMAIL *</label>
-            <input type="email" name="email" id="email" required 
-                placeholder="example@gmail.com">
-        </div>
-        <div>
-            <label for="phone">PHONE NUMBER</label>
-            <input type="tel" name="phone" id="phone" placeholder="860 123 1234" 
-                pattern="\d{10}" title="Provide telephone number in this format: 860 123 1234 ">
-        </div>
-        <div>
-            <label for="pwd">PASSWORD *</label>
-            <input type="password" name="pwd" id="pwd" required
-                minlength="8" maxlength="20">
-        </div>
-        
-    </div>
-    <div class="btnContainers">
-        <div>
-            <button type="button" class="createTaskBtn">CREATE TASK</button>
-        </div>
-        <div>
-            <button type="button" class="cancelTaskBtn">CANCEL</button>
-        </div>
+    
     </div>
     `;
     
     content.appendChild(overlay);
     content.appendChild(taskFormContainer);
 };
-
+// <button type="button" class="priorityBtn" data-priority="HIGH">HIGH</button>
+// <button type="button" class="priorityBtn" data-priority="MEDIUM">MEDIUM</button>
+// <button type="button" class="priorityBtn" data-priority="LOW">LOW</button>
+                    
 
 
 
