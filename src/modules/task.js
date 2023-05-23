@@ -7,9 +7,6 @@ const task = (title, details, dueDay, priority = 'Medium', completed = false) =>
     let _dueDay = dueDay;
     let _priority = priority;
     let _completed = completed;
-    let formattedDate = () => {
-        return format(new Date(_dueDay), 'dd/MM/yyyy');
-    }
     
     return {
         get title() { return _title; },
@@ -22,9 +19,14 @@ const task = (title, details, dueDay, priority = 'Medium', completed = false) =>
         set priority(newPriority) { _priority = newPriority; },
         get completed() { return _completed; },
         set completed(newCompleted) { _completed = newCompleted; },
-        formattedDate
+        
     }
 }; 
+
+const formattedDate = (dueDay) => {
+    return format(new Date(dueDay), 'dd/MM/yyyy');
+}
+
 
 const processTaskInput = () => {
     const title = document.querySelector('#title');
