@@ -370,3 +370,10 @@ textarea:focus {
     background-color: white;
     border: 1px solid  rgb(238, 37, 37);
 } 
+
+.titleError,
+.dueError {
+    color: rgb(238, 37, 37);
+    font-size: 0.5rem;
+    font-weight: bold;
+}

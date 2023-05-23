@@ -51,18 +51,6 @@ const RenderAddTaskBtn = () => {
 };
 
 const RenderTaskForm = () => {
-    // const taskFormContainer = document.createElement('div');
-    // const form = document.createElement('form');
-    // const nameDiv = document.createElement('div');
-    // const nameLabel = document.createElement('label');
-    // const nameInput = document.createElement('input')
-    // const descriptionDiv = document.createElement('div');
-    // const descriptionLabel = document.createElement('label');
-    // const dueDiv = document.createElement('div');
-    // const dueLabel = document.createElement('label');
-    // const priorityDiv = document.createElement('div');
-    // const priorityLabel = document.createElement('label');
-    
     const overlay = document.createElement('div');
     const taskFormContainer = document.createElement('div')
     
@@ -70,9 +58,9 @@ const RenderTaskForm = () => {
     taskFormContainer.classList.add('taskFormContainer');
 
     taskFormContainer.innerHTML = 
-    `<form action="" method="">
+    `<form action="" method="" id="taskForm">
         <div class="form-control">
-            <div>
+            <div class="titleDiv">
                 <label for="title">TITLE: *</label>
                 <input type="text" name="title" id="title" required placeholder="LeetCode"
                     minlength="2" maxlength="20" autofocus>
@@ -82,8 +70,8 @@ const RenderTaskForm = () => {
                 <textarea name="details" id="details" rows="4" cols="50">
                 </textarea>
             </div>
-            <div>
-                <label for="due">DUE DAY: *</label>
+            <div class="dueDiv">
+                <label for="due">DUE DATE: *</label>
                 <input type="date" name="due" id="due" required 
                     placeholder="05/22/2023">
             </div>
@@ -101,18 +89,15 @@ const RenderTaskForm = () => {
             <div class="taskBtnContainer">
                 <button type="button" class="createTaskBtn">CREATE TASK</button>
                 <button type="button" class="cancelTaskBtn">CANCEL</button>
+                <!--Use input type="submit" to enable form built-in validations-->
+                <!--input type="submit" class="createTaskBtn" value="CREATE TASK"-->
             </div>
         </div>
-    
-    </div>
-    `;
+    </form>`;
     
     content.appendChild(overlay);
     content.appendChild(taskFormContainer);
 };
-// <button type="button" class="priorityBtn" data-priority="HIGH">HIGH</button>
-// <button type="button" class="priorityBtn" data-priority="MEDIUM">MEDIUM</button>
-// <button type="button" class="priorityBtn" data-priority="LOW">LOW</button>
                     
 
 
