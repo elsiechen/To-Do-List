@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { RenderAddTaskBtn, RenderTaskForm } from "./taskForm";
 
 const task = (title, details, dueDay, priority = 'Medium', completed = false) => {
@@ -24,7 +24,9 @@ const task = (title, details, dueDay, priority = 'Medium', completed = false) =>
 }; 
 
 const formattedDate = (dueDay) => {
-    return format(new Date(dueDay), 'dd/MM/yyyy');
+    console.log(dueDay);
+    // 
+    return format(parseISO(dueDay), 'MM/dd');
 }
 
 
@@ -38,6 +40,9 @@ const processTaskInput = () => {
                          dueDay.value,
                          priority.value);
     console.log(newTask);
+    console.log(newTask.dueDay)
+    const formatted = formattedDate(newTask.dueDay);
+    console.log(formatted);
 };
 
 const taskEventListener = () => {
