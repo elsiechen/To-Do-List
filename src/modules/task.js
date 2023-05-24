@@ -59,6 +59,8 @@ const saveToLocalStorage = (newTask) => {
     console.log(taskArray)
     // Set current project tasks array as new array
     currentProject.tasks = taskArray;
+    // Update tasks length in project object
+    currentProject.length = currentProject.tasks.length;
     // Update current project in projectList
     projectList[currentProjectId] = currentProject;
     console.log(projectList)
