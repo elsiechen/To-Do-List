@@ -6,9 +6,9 @@ import { RenderTaskList } from './taskList';
 
 
 const project = (projectName) => {
-    const tasks = [];
-    const length = tasks.length;
-    const name = projectName;
+    let tasks = [];
+    let length = tasks.length;
+    let name = projectName;
 
     return { name, tasks, length }
 };
@@ -69,8 +69,6 @@ const projectEventListener = () => {
     let projects = document.querySelectorAll('.projectContainer');
     projects.forEach(project => {
         let currentProjectId = project.getAttribute('data-project-id');
-        console.log(project);
-        console.log(currentProjectId);
          
         project.addEventListener('click', () => {
             // save current project id to local storage 

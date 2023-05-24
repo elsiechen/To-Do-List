@@ -54,7 +54,6 @@ const saveToLocalStorage = (newTask) => {
     console.log(currentProject);
     // Get current project tasks array
     let taskArray = currentProject.tasks;
-    console.log(taskArray)
     // Push new task to current project tasks array
     taskArray.push(newTask);
     console.log(taskArray)
@@ -64,9 +63,9 @@ const saveToLocalStorage = (newTask) => {
     projectList[currentProjectId] = currentProject;
     console.log(projectList)
     // Override old projectList with new one
-    // storage('projectList', projectList).override();
-    // let updatedProjectList = getStorage('projectList');
-    // console.log(updatedProjectList)
+    storage('projectList', projectList).override();
+    let updatedProjectList = getStorage('projectList');
+    console.log(updatedProjectList)
 };
 
 const taskEventListener = () => {

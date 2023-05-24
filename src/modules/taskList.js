@@ -19,9 +19,9 @@ const RenderTaskList = () => {
     //     currentProject = projectList[0];
     //     console.log(currentProject);
     // }
-    console.log(`first project: ${projectList[0].name}`);
-    console.log(`currentProject: ${currentProject} `)
+    console.log(`first project: ${projectList[0].name}`);   
     console.log(`current project name: ${currentProject.name}`)
+    console.log(currentProject)
 
     if(currentProject.tasks.length){
         console.log('at least 1 task(s)')
