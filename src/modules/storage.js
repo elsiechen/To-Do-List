@@ -15,7 +15,9 @@ const storage = (key, value) => {
     };
     // override old value to key
     const override = () => {
-        localStorage.setItem(key, value);
+        // correct
+        const serialize = JSON.stringify(value);
+        localStorage.setItem(key, serialize);
     };
     return { save, override };
 };

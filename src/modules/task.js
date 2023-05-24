@@ -1,5 +1,6 @@
 import { format, parseISO } from 'date-fns'
 import { RenderAddTaskBtn, RenderTaskForm } from "./taskForm";
+import { storage, getStorage, getOneValue } from './storage';
 
 const task = (title, details, dueDay, priority = 'Medium', completed = false) => {
     let _title = title;
@@ -35,14 +36,37 @@ const processTaskInput = () => {
     const details = document.querySelector('#details');
     const dueDay = document.querySelector('#due');
     const priority = document.querySelector('input[name="priority"]:checked');
-    const newTask = task(title.value,
+    let newTask = task(title.value,
                          details.value,
                          dueDay.value,
                          priority.value);
-    console.log(newTask);
-    console.log(newTask.dueDay)
+    
     const formatted = formattedDate(newTask.dueDay);
     console.log(formatted);
+
+    saveToLocalStorage(newTask);
+};
+
+const saveToLocalStorage = (newTask) => {
+    let projectList = getStorage('projectList');
+    const currentProjectId = getOneValue('currentProjectId');
+    let currentProject = projectList[currentProjectId];
+    console.log(currentProject);
+    // Get current project tasks array
+    let taskArray = currentProject.tasks;
+    console.log(taskArray)
+    // Push new task to current project tasks array
+    taskArray.push(newTask);
+    console.log(taskArray)
+    // Set current project tasks array as new array
+    currentProject.tasks = taskArray;
+    // Update current project in projectList
+    projectList[currentProjectId] = currentProject;
+    console.log(projectList)
+    // Override old projectList with new one
+    // storage('projectList', projectList).override();
+    // let updatedProjectList = getStorage('projectList');
+    // console.log(updatedProjectList)
 };
 
 const taskEventListener = () => {

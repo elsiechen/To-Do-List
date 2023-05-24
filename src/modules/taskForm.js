@@ -67,8 +67,7 @@ const RenderTaskForm = () => {
             </div>
             <div>
                 <label for="details">DETAILS: </label>
-                <textarea name="details" id="details" rows="4" cols="50">
-                </textarea>
+                <textarea name="details" id="details" rows="4" cols="50"></textarea>
             </div>
             <div class="dueDiv">
                 <label for="due">DUE DATE: *</label>
