@@ -24,7 +24,7 @@ const processProjectInput = () => {
     hideForm();
     saveToLocalStorage(newProject);
     renderProjects();
-
+    projectEventListener();
     // clear project input after save
     projectInput.value = '';
 };
@@ -67,10 +67,10 @@ const renderProjects = () => {
 };
 
 const projectEventListener = () => {
-    const projectList = getStorage('projectList');
-    const projects = document.querySelectorAll('.projectContainer');
+    let projectList = getStorage('projectList');
+    let projects = document.querySelectorAll('.projectContainer');
     projects.forEach(project => {
-        const currentProjectId = project.getAttribute('data-project-id');
+        let currentProjectId = project.getAttribute('data-project-id');
         console.log(project);
         console.log(currentProjectId);
          
