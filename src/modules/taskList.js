@@ -55,6 +55,7 @@ const RenderTaskList = () => {
             const detail = document.createElement('button');
             const editTask = document.createElement('img');
             const deleteTask = document.createElement('img');
+            const priority = projectTaskList[i].priority;
 
             listDiv.classList.add('listDiv');
             checkbox.classList.add('checkbox');
@@ -82,8 +83,15 @@ const RenderTaskList = () => {
             listDiv.appendChild(deleteTask);
     
             lists.appendChild(listDiv);
-        }
+            console.log(projectTaskList[i]);
+            console.log(priority)
+            // Set priority style using borderLeftColor
+            if(priority === 'HIGH') listDiv.style.borderLeftColor = 'rgb(238, 37, 37)';
+            if(priority === 'MEDIUM') listDiv.style.borderLeftColor = 'rgb(8, 131, 149)';
+            if(priority === 'LOW') listDiv.style.borderLeftColor = 'rgb(255, 229, 105)';
+        }   
     }
+    
     
     listContainer.appendChild(projectName);
     listContainer.appendChild(lists);
