@@ -55,9 +55,10 @@ const RenderTaskList = () => {
             const detail = document.createElement('button');
             const editTask = document.createElement('img');
             const deleteTask = document.createElement('img');
-    
+
             listDiv.classList.add('listDiv');
             checkbox.classList.add('checkbox');
+            dueDay.classList.add('dueDay');
             detail.classList.add('detail');
             editTask.classList.add('editTask');
             deleteTask.classList.add('deleteTask');
@@ -66,6 +67,7 @@ const RenderTaskList = () => {
             checkbox.setAttribute('alt', 'Empty Checkbox');
             title.innerHTML = projectTaskList[i].title;
             dueDay.innerHTML = projectTaskList[i].dueDay;
+            detail.innerHTML = 'DETAIL';
             detail.setAttribute('type', 'button');
             editTask.setAttribute('src', editing);
             editTask.setAttribute('alt', 'Editing');
