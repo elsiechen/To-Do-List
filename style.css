@@ -397,7 +397,7 @@ textarea:focus {
 }
 
 .lists {
-    
+    margin-bottom: 1rem;
 }
 
 .listDiv {
@@ -408,6 +408,13 @@ textarea:focus {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     border-left-width: 5px;
+    height: 1.5rem;
+    align-items: center;
+}
+
+.listDiv:hover {
+    background-color: #edebeb;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .checkbox {
@@ -421,5 +428,19 @@ textarea:focus {
 .detail {
     border-radius: 5px;
     background-color: #E7E5E4;
-    border: 1px solid;
+    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.detail:hover {
+    background-color: rgb(8, 131, 149);
+    color: white;
+    border: none;
+}
+
+.checkbox:hover,
+.detail:hover,
+.editTask:hover,
+.deleteTask:hover {
+    cursor: pointer;
 }
