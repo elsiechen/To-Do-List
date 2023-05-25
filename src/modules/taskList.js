@@ -1,8 +1,8 @@
 import { getStorage, getOneValue } from "./storage";
 // 'import circle' instead of 'import { circle }'
-import circle from "./circle.png";
-import editing from './editing.png';
-import Delete from './delete.png';
+import circle from "./imgs/circle.png";
+import editing from './imgs/editing.png';
+import Delete from './imgs/delete.png';
 
 let content = document.querySelector('.content');
 const addTaskBtn = document.querySelector('.add-task');
