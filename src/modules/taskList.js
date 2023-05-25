@@ -1,12 +1,13 @@
 import { getStorage, getOneValue } from "./storage";
 // 'import circle' instead of 'import { circle }'
 import circle from "./imgs/circle.png";
+import check from "./imgs/check.png";
 import editing from './imgs/editing.png';
 import Delete from './imgs/delete.png';
 
 let content = document.querySelector('.content');
 const addTaskBtn = document.querySelector('.add-task');
-
+ 
 const RenderTaskList = () => {
     let projectList = getStorage('projectList');
     const currentProjectId = getOneValue('currentProjectId');
@@ -65,7 +66,6 @@ const RenderTaskList = () => {
             deleteTask.classList.add('deleteTask');
     
             checkbox.setAttribute('src', circle);
-            checkbox.setAttribute('alt', 'Empty Checkbox');
             title.innerHTML = projectTaskList[i].title;
             dueDay.innerHTML = projectTaskList[i].dueDay;
             detail.innerHTML = 'DETAIL';
@@ -105,4 +105,30 @@ const RenderTaskList = () => {
     
 };
 
-export { RenderTaskList };
+const getProjectTask = (taskId) => {
+    let projectList = getStorage('projectList');
+    const currentProjectId = getOneValue('currentProjectId');
+    let currentProject = projectList[currentProjectId];
+    let projectTaskList = currentProject.tasks;
+    return projectTaskList[taskId];
+};
+
+const checkboxEvent = () => {
+    let checkboxes = document.querySelectorAll('.checkbox');  
+    console.log('checkbox event')
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', () => {
+            const taskId = checkbox.getAttribute('data-task-id');
+            let currentTask = getProjectTask(taskId);
+            let img = checkbox.getAttribute('src');
+    
+            checkbox.setAttribute('src', img == circle? check: circle);
+            console.log('change checkbox img')
+        });
+    });
+};
+const listEventListener = () => {
+    checkboxEvent();
+};
+
+export { RenderTaskList, listEventListener };

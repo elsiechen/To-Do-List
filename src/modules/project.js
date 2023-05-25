@@ -2,7 +2,7 @@ import { storage, getStorage } from './storage';
 import  { hideForm }  from './projectForm';
 import { RenderAddTaskBtn } from './taskForm';
 import { taskEventListener } from './task';
-import { RenderTaskList } from './taskList';
+import { RenderTaskList, listEventListener } from './taskList';
 
 
 const project = (projectName) => {
@@ -77,6 +77,7 @@ const projectEventListener = () => {
             RenderTaskList();
             RenderAddTaskBtn();
             taskEventListener();
+            listEventListener();
         });
     });
 };
