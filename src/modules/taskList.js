@@ -1,4 +1,4 @@
-import { getStorage, getOneValue } from "./storage";
+import { storage, getStorage, getOneValue } from "./storage";
 // 'import circle' instead of 'import { circle }'
 import circle from "./imgs/circle.png";
 import check from "./imgs/check.png";
@@ -90,8 +90,7 @@ const RenderTaskList = () => {
             listDiv.appendChild(deleteTask);
     
             lists.appendChild(listDiv);
-            console.log(projectTaskList[i]);
-            console.log(priority)
+            
             // Set priority style using borderLeftColor
             if(priority === 'HIGH') listDiv.style.borderLeftColor = 'rgb(238, 37, 37)';
             if(priority === 'MEDIUM') listDiv.style.borderLeftColor = 'rgb(8, 131, 149)';
@@ -105,25 +104,50 @@ const RenderTaskList = () => {
     
 };
 
-const getProjectTask = (taskId) => {
+const getCurrentProject = () => {
     let projectList = getStorage('projectList');
     const currentProjectId = getOneValue('currentProjectId');
-    let currentProject = projectList[currentProjectId];
+    return projectList[currentProjectId];
+};
+const getProjectTask = (taskId) => {
+    let currentProject = getCurrentProject();
     let projectTaskList = currentProject.tasks;
     return projectTaskList[taskId];
 };
 
+const saveUpdatedTaskToLocalStorage = (taskId,updatedTask) => {
+    let projectList = getStorage('projectList');
+    const currentProjectId = getOneValue('currentProjectId');
+    let currentProject = projectList[currentProjectId];
+    let projectTaskList = currentProject.tasks;
+    // Update task
+    projectTaskList[taskId] = updatedTask;
+    console.log(projectTaskList[taskId])
+    // Update current project in projectList
+    projectList[currentProjectId] = currentProject;
+    console.log(currentProject);
+    // Override old projectList with new one
+    storage('projectList', projectList).override();
+    let updatedProjectList = getStorage('projectList');
+    console.log(updatedProjectList)
+};
+
 const checkboxEvent = () => {
-    let checkboxes = document.querySelectorAll('.checkbox');  
-    console.log('checkbox event')
+    let checkboxes = document.querySelectorAll('.checkbox');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('click', () => {
             const taskId = checkbox.getAttribute('data-task-id');
             let currentTask = getProjectTask(taskId);
             let img = checkbox.getAttribute('src');
-    
+            console.log(currentTask);
+
             checkbox.setAttribute('src', img == circle? check: circle);
             console.log('change checkbox img')
+            
+            currentTask.completed = currentTask.completed == true? false: true;
+            console.log(currentTask.completed);
+            saveUpdatedTaskToLocalStorage(taskId, currentTask)
+            
         });
     });
 };
