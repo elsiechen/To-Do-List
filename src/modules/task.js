@@ -1,6 +1,7 @@
 import { format, parseISO } from 'date-fns'
 import { RenderAddTaskBtn, RenderTaskForm } from "./taskForm";
 import { storage, getStorage, getOneValue } from './storage';
+import { RenderTaskList } from './taskList';
 
 const task = (title, details, dueDay, priority = 'Medium', completed = false) => {
     let _title = title;
@@ -45,6 +46,7 @@ const processTaskInput = () => {
     console.log(formatted);
 
     saveToLocalStorage(newTask);
+    RenderTaskList();
 };
 
 const saveToLocalStorage = (newTask) => {
