@@ -74,7 +74,13 @@ const RenderTaskList = () => {
             editTask.setAttribute('alt', 'Editing');
             deleteTask.setAttribute('src', Delete);
             deleteTask.setAttribute('alt', 'Delete');
-    
+            // Set data-task-id to identify specific task
+            listDiv.setAttribute('data-task-id', i);
+            checkbox.setAttribute('data-task-id', i);
+            detail.setAttribute('data-task-id', i);
+            editTask.setAttribute('data-task-id', i);
+            deleteTask.setAttribute('data-task-id', i);
+
             listDiv.appendChild(checkbox);
             listDiv.appendChild(title);
             listDiv.appendChild(dueDay);
