@@ -25,13 +25,8 @@ const RenderTaskList = () => {
     //     currentProject = projectList[0];
     //     console.log(currentProject);
     // }
-    console.log(`first project: ${projectList[0].name}`);   
     console.log(`current project name: ${currentProject.name}`)
     console.log(currentProject)
-
-    if(currentProject.tasks.length){
-        console.log('at least 1 task(s)')
-    }
 
     let listContainer = document.querySelector('.listContainer');
     const projectName = document.createElement('div');
@@ -58,6 +53,7 @@ const RenderTaskList = () => {
             const editTask = document.createElement('img');
             const deleteTask = document.createElement('img');
             const priority = projectTaskList[i].priority;
+            let completed = projectTaskList[i].completed;
 
             listDiv.classList.add('listDiv');
             checkbox.classList.add('checkbox');
@@ -65,8 +61,8 @@ const RenderTaskList = () => {
             detail.classList.add('detail');
             editTask.classList.add('editTask');
             deleteTask.classList.add('deleteTask');
-    
-            checkbox.setAttribute('src', circle);
+            
+            checkbox.setAttribute('src', completed === true? check: circle);
             title.innerHTML = projectTaskList[i].title;
             dueDay.innerHTML = projectTaskList[i].dueDay;
             detail.innerHTML = 'DETAIL';
