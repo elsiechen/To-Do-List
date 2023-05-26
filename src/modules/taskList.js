@@ -5,6 +5,7 @@ import check from "./imgs/check.png";
 import editing from './imgs/editing.png';
 import Delete from './imgs/delete.png';
 import Close from './imgs/close-cross.png';
+import { renderProjects } from "./project";
 
 let content = document.querySelector('.content');
 const addTaskBtn = document.querySelector('.add-task');
@@ -14,9 +15,6 @@ const RenderTaskList = () => {
     const currentProjectId = getOneValue('currentProjectId');
     let currentProject = projectList[currentProjectId];
     let projectTaskList = currentProject.tasks;
-    console.log(projectList);
-    console.log(currentProjectId);
-    console.log(typeof currentProjectId);
     
     // problem: if currentProjectId is 0 (first project)
     //  in localStorage, it became [] and typeof object  
@@ -208,9 +206,39 @@ const renderDetailEvent = () => {
     });
 };
 
+const deleteEvent = () => {
+    let deleteBtns = document.querySelectorAll('.deleteTask');
+    deleteBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            let projectList = getStorage('projectList');
+            let currentProjectId = getStorage('currentProjectId');
+            let currentProject = getCurrentProject();
+            let projectTaskList = currentProject.tasks;
+            const taskId = e.target.getAttribute('data-task-id');
+            console.log(taskId)
+            console.log(currentProject.tasks)
+            // Delete task from current project
+            currentProject.tasks.splice(taskId, 1);
+            // Update tasks length in current project
+            currentProject.length -= 1;
+            console.log(currentProject.length)
+            // Update current project in project list
+            projectList[currentProjectId] = currentProject;
+            // Save updated projectList to localStorage
+            storage('projectList', projectList).override();
+            console.log('delete event');
+            RenderTaskList();
+            renderProjects();
+        });
+    });
+    
+
+};
+
 const listEventListener = () => {
     checkboxEvent();
     detailEvent();
+    deleteEvent();
 };
 
 export { RenderTaskList, listEventListener };
