@@ -251,7 +251,8 @@ footer img {
     z-index: 9999;
 }
 
-.taskFormContainer {
+.taskFormContainer,
+.renderDetailDiv {
     color: black;
     position: fixed;
     top: 50%;
@@ -444,3 +445,15 @@ textarea:focus {
 .deleteTask:hover {
     cursor: pointer;
 }
+
+/* render task detail */
+/* .renderDetailDiv {
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+} */

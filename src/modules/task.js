@@ -3,7 +3,7 @@ import { RenderAddTaskBtn, RenderTaskForm } from "./taskForm";
 import { storage, getStorage, getOneValue } from './storage';
 import { RenderTaskList, listEventListener } from './taskList';
 
-let task = (title, details, dueDay, priority = 'Medium', completed = false) => {
+let task = (title, details, dueDay, priority, completed = false) => {
     let _title = title;
     let _details = details;
     let _dueDay = dueDay;

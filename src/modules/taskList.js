@@ -4,6 +4,7 @@ import circle from "./imgs/circle.png";
 import check from "./imgs/check.png";
 import editing from './imgs/editing.png';
 import Delete from './imgs/delete.png';
+import Close from './imgs/close-cross.png';
 
 let content = document.querySelector('.content');
 const addTaskBtn = document.querySelector('.add-task');
@@ -98,7 +99,6 @@ const RenderTaskList = () => {
         }   
     }
     
-    
     listContainer.appendChild(projectName);
     listContainer.appendChild(lists);
     
@@ -151,8 +151,82 @@ const checkboxEvent = () => {
         });
     });
 };
+
+const renderDetail = (e) => {
+    console.log(e.target);
+    const currentProject = getCurrentProject();
+    const taskId = e.target.getAttribute('data-task-id');
+    console.log(taskId);
+    let currentTask = getProjectTask(taskId);
+    console.log(currentTask);
+
+    const overlay = document.createElement('div');
+    let renderDetailDiv = document.createElement('div');
+    
+    overlay.classList.add('overlay'); 
+    renderDetailDiv.classList.add('renderDetailDiv');
+
+    renderDetailDiv.innerHTML = 
+    `
+        <img src="${Close}" alt="Close Cross" class="closeBtn">
+        <h1>Task: ${currentTask.title}</h1>
+        <div>Project: ${currentProject.name}</div>
+        <div>Priority: ${currentTask.priority}</div>
+        <div>Due Day: ${currentTask.dueDay}</div>
+        <div>Details: ${currentTask.detail = 
+            currentTask.detail == undefined? 
+            'No details provided.': currentTask.detail}</div>
+    
+    `;
+
+    content.appendChild(overlay);
+    content.appendChild(renderDetailDiv);
+
+    console.log(renderDetailDiv)
+    // renderDetailEvent();
+    // const closeBtn = document.querySelector('.closeBtn');
+    // console.log(closeBtn);
+    // const selectOverlay = document.querySelector('.overlay');
+    // const selectRenderDetailDiv = document.querySelector('.renderDetailDiv');
+    // closeBtn.addEventListener('click', () => {
+    //     selectOverlay.remove();
+    //     selectRenderDetailDiv.remove();
+    // });
+};
+
+
+
+const detailEvent = () => {
+    let details = document.querySelectorAll('.detail');
+    details.forEach(detail => {
+        detail.addEventListener('click', (e) => {
+            renderDetail(e);
+            renderDetailEvent()
+        });
+    });
+};
+
+const renderDetailEvent = () => {
+    const closeBtn = document.querySelector('.closeBtn');
+    console.log(closeBtn);
+    const overlay = document.querySelector('.overlay');
+    const renderDetailDiv = document.querySelector('.renderDetailDiv');
+    
+    closeBtn.addEventListener('click', () => {
+        overlay.remove();
+        renderDetailDiv.remove();
+    });
+
+    // if overlay is clicked, remove overlay and form 
+    overlay.addEventListener('click', () => {
+        overlay.remove();
+        renderDetailDiv.remove();
+    });
+};
+
 const listEventListener = () => {
     checkboxEvent();
+    detailEvent();
 };
 
 export { RenderTaskList, listEventListener };
