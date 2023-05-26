@@ -156,10 +156,10 @@ const renderDetail = (e) => {
     console.log(e.target);
     const currentProject = getCurrentProject();
     const taskId = e.target.getAttribute('data-task-id');
-    console.log(taskId);
+    // console.log(taskId);
     let currentTask = getProjectTask(taskId);
-    console.log(currentTask);
-
+    // console.log(currentTask);
+    // console.log(currentTask.details)
     const overlay = document.createElement('div');
     let renderDetailDiv = document.createElement('div');
     
@@ -167,31 +167,20 @@ const renderDetail = (e) => {
     renderDetailDiv.classList.add('renderDetailDiv');
 
     renderDetailDiv.innerHTML = 
-    `
+    `<div class="detailContainer">
         <img src="${Close}" alt="Close Cross" class="closeBtn">
-        <h1>Task: ${currentTask.title}</h1>
+        <h2>Task: ${currentTask.title}</h2>
         <div>Project: ${currentProject.name}</div>
-        <div>Priority: ${currentTask.priority}</div>
-        <div>Due Day: ${currentTask.dueDay}</div>
-        <div>Details: ${currentTask.detail = 
-            currentTask.detail == undefined? 
-            'No details provided.': currentTask.detail}</div>
-    
+        <div>Priority: <strong>${currentTask.priority}</strong></div>
+        <div>Due Day: <strong>${currentTask.dueDay}</strong></div>
+        <div>Details: ${currentTask.details = 
+            currentTask.details == ''? 
+            'No details provided.': currentTask.details}</div>
+    </div>
     `;
 
     content.appendChild(overlay);
     content.appendChild(renderDetailDiv);
-
-    console.log(renderDetailDiv)
-    // renderDetailEvent();
-    // const closeBtn = document.querySelector('.closeBtn');
-    // console.log(closeBtn);
-    // const selectOverlay = document.querySelector('.overlay');
-    // const selectRenderDetailDiv = document.querySelector('.renderDetailDiv');
-    // closeBtn.addEventListener('click', () => {
-    //     selectOverlay.remove();
-    //     selectRenderDetailDiv.remove();
-    // });
 };
 
 
@@ -208,7 +197,6 @@ const detailEvent = () => {
 
 const renderDetailEvent = () => {
     const closeBtn = document.querySelector('.closeBtn');
-    console.log(closeBtn);
     const overlay = document.querySelector('.overlay');
     const renderDetailDiv = document.querySelector('.renderDetailDiv');
     

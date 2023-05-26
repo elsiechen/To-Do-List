@@ -447,13 +447,17 @@ textarea:focus {
 }
 
 /* render task detail */
-/* .renderDetailDiv {
+.detailContainer{
     position: relative;
+    padding: 0 0 1rem;
+}
+
+.detailContainer > div {
+    line-height: 1.6;
 }
 
 .closeBtn {
     position: absolute;
-    top: 0;
+    top: -1rem;
     right: 0;
-
-} */
+}
