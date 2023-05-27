@@ -455,11 +455,21 @@ textarea:focus {
     border: none;
 }
 
+.editTask,
+.deleteTask {
+    opacity: 0.5;
+}
+
 .checkbox:hover,
 .detail:hover,
 .editTask:hover,
 .deleteTask:hover {
     cursor: pointer;
+}
+
+.editTask:hover,
+.deleteTask:hover {
+    opacity: 1;
 }
 
 /* render task detail */
