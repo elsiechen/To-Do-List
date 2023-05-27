@@ -247,11 +247,17 @@ const deleteProjectEvent = () => {
     deleteProjectBtn.addEventListener('click', () => {
         let projectList = getStorage('projectList');
         let currentProjectId = getStorage('currentProjectId');
+        let listContainer = document.querySelector('.listContainer');
+
+        // Delete current project from projectList
         projectList.splice(currentProjectId, 1);
+        // Update projectList in localStorage
         storage('projectList', projectList).override();
-            console.log('delete project event');
-            RenderTaskList();
-            renderProjects();
+        // Update current project id to empty
+        storage('currentProjectId', '').override();
+        renderProjects();
+        // Clear listContainer
+        listContainer.innerHTML = '';
     });
 };
 
