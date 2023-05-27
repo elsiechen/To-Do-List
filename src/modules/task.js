@@ -73,16 +73,71 @@ const saveToLocalStorage = (newTask) => {
     console.log(updatedProjectList)
 };
 
+const createTaskBtnEvent = () => {
+    const createTaskBtn = document.querySelector('.createTaskBtn');
+    const addTaskContainer = document.querySelector('.add-task');
+    const overlay = document.querySelector('.overlay');
+    const taskFormContainer = document.querySelector('.taskFormContainer');
+
+    createTaskBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        console.log('create task btn clicked')
+        // If form in invalid(return false), return
+        if(!formValidation()){
+            return;
+        }
+        processTaskInput();
+
+        addTaskContainer.style.display = 'block';
+        overlay.remove();
+        taskFormContainer.remove();
+    });
+};
+
+const cancelTaskBtnEvent = () => {
+    const cancelTaskBtn = document.querySelector('.cancelTaskBtn');
+    const addTaskContainer = document.querySelector('.add-task');
+    const overlay = document.querySelector('.overlay');
+    const taskFormContainer = document.querySelector('.taskFormContainer');
+
+    cancelTaskBtn.addEventListener('click', () => {
+        console.log('cancel task btn clicked')
+        addTaskContainer.style.display = 'block';
+        overlay.remove();
+        taskFormContainer.remove();
+    })
+};
+
+const overlayEvent = () => {
+    const createTaskBtn = document.querySelector('.createTaskBtn');
+    const cancelTaskBtn = document.querySelector('.cancelTaskBtn');
+    const addTaskContainer = document.querySelector('.add-task');
+    const overlay = document.querySelector('.overlay');
+    const taskFormContainer = document.querySelector('.taskFormContainer');
+
+    // if overlay is clicked, remove overlay and form 
+    overlay.addEventListener('click', () => {
+        addTaskContainer.style.display = 'block';
+        overlay.remove();
+        taskFormContainer.remove();
+    });
+};
+
 const taskEventListener = () => {
     const addTaskContainer = document.querySelector('.add-task');
 
     addTaskContainer.addEventListener('click', () => { 
         addTaskContainer.style.display = 'none';
         RenderTaskForm();
-        taskFormEventListener();
+        // taskFormEventListener();
+        createTaskBtnEvent();
+        cancelTaskBtnEvent();
+        overlayEvent();
     });
 };
 
+// wait to be deleted
 const taskFormEventListener = () => {
     const createTaskBtn = document.querySelector('.createTaskBtn');
     const cancelTaskBtn = document.querySelector('.cancelTaskBtn');
@@ -100,7 +155,6 @@ const taskFormEventListener = () => {
             return;
         }
         processTaskInput();
-
 
         addTaskContainer.style.display = 'block';
         overlay.remove();
