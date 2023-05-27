@@ -27,15 +27,20 @@ const RenderTaskList = () => {
     console.log(currentProject)
 
     let listContainer = document.querySelector('.listContainer');
+    const projectNameDiv = document.createElement('div');
     const projectName = document.createElement('div');
+    const deleteProject = document.createElement('button');
     const lists = document.createElement('div');
 
+    projectNameDiv.classList.add('projectNameDiv');
     projectName.classList.add('projectName');
+    deleteProject.classList.add('deleteProject');
     lists.classList.add('lists');
 
     // Clear project name and list content
     listContainer.innerHTML = '';
 
+    deleteProject.innerHTML = 'Delete Project';
     // Render new project name and new list content
     projectName.innerHTML = currentProject.name;
 
@@ -93,7 +98,9 @@ const RenderTaskList = () => {
         }   
     }
     
-    listContainer.appendChild(projectName);
+    projectNameDiv.appendChild(projectName);
+    projectNameDiv.appendChild(deleteProject);
+    listContainer.appendChild(projectNameDiv);
     listContainer.appendChild(lists);
     
 };
