@@ -387,7 +387,8 @@ textarea:focus {
     gap: 1rem;
 }
 
-.projectName {
+.projectNameDiv {
+    display: flex;
     height: 5vh;
     background-color: rgb(10, 77, 104);
     font-size: 2rem;
@@ -395,6 +396,21 @@ textarea:focus {
     padding: 1rem;
     color: white;
     border-radius: 5px;
+}
+
+.deleteProject {
+    margin-left: auto;
+    font-weight: bold;
+    color: rgb(10, 77, 104);
+    border-radius: 5px;
+    border: none;
+}
+
+.deleteProject:hover {
+    background-color: rgb(238, 37, 37);
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
 }
 
 .lists {
@@ -461,3 +477,6 @@ textarea:focus {
     top: -1rem;
     right: 0;
 }
+
+
+
