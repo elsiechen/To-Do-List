@@ -6,6 +6,7 @@ import editing from './imgs/editing.png';
 import Delete from './imgs/delete.png';
 import Close from './imgs/close-cross.png';
 import { renderProjects } from "./project";
+import { RenderTaskForm } from "./taskForm";
 
 let content = document.querySelector('.content');
 const addTaskBtn = document.querySelector('.add-task');
@@ -261,11 +262,47 @@ const deleteProjectEvent = () => {
     });
 };
 
+const renderTaskFormToEdit = (e) => {
+    const taskId = e.target.getAttribute('data-task-id');
+    const currentTask = getProjectTask(taskId);
+    console.log(currentTask)
+    // Render task form to edit
+    RenderTaskForm();
+
+    let title = document.querySelector('#title');
+    let details = document.querySelector('#details');
+    let due = document.querySelector('#due');
+    let priority = document.querySelector('input[name="priority"]:checked');
+    let createTaskBtn = document.querySelector('.createTaskBtn');
+
+    // Fill form with existed values
+    title.value = currentTask.title;
+    details.value = currentTask.details;
+    due.value = currentTask.dueDay;
+    priority.value = currentTask.priority;
+
+    // Change create btn text to edit
+    createTaskBtn.innerHTML = 'EDIT TASK';
+};
+
+const editTaskEvent = () => {
+    const editTaskBtns = document.querySelectorAll('.editTask');
+    editTaskBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            renderTaskFormToEdit(e);
+
+        });
+    });
+    
+};
+
+
 const listEventListener = () => {
     checkboxEvent();
     detailEvent();
     deleteEvent();
     deleteProjectEvent();
+    editTaskEvent();
 };
 
 export { RenderTaskList, listEventListener };
