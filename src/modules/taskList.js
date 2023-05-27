@@ -220,7 +220,7 @@ const deleteEvent = () => {
             let projectList = getStorage('projectList');
             let currentProjectId = getStorage('currentProjectId');
             let currentProject = getCurrentProject();
-            let projectTaskList = currentProject.tasks;
+            // let projectTaskList = currentProject.tasks;
             const taskId = e.target.getAttribute('data-task-id');
             console.log(taskId)
             console.log(currentProject.tasks)
@@ -242,10 +242,24 @@ const deleteEvent = () => {
 
 };
 
+const deleteProjectEvent = () => {
+    const deleteProjectBtn = document.querySelector('.deleteProject');
+    deleteProjectBtn.addEventListener('click', () => {
+        let projectList = getStorage('projectList');
+        let currentProjectId = getStorage('currentProjectId');
+        projectList.splice(currentProjectId, 1);
+        storage('projectList', projectList).override();
+            console.log('delete project event');
+            RenderTaskList();
+            renderProjects();
+    });
+};
+
 const listEventListener = () => {
     checkboxEvent();
     detailEvent();
     deleteEvent();
+    deleteProjectEvent();
 };
 
 export { RenderTaskList, listEventListener };
