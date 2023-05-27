@@ -213,7 +213,7 @@ footer img {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    width: 15%;
+    width: 8rem;
     border-radius: 5px;
     padding: 0.3rem 0.5rem;
 }
@@ -222,7 +222,7 @@ footer img {
 }
 
 .add-div {
-    font-size: 24px;
+    font-size: 16px;
 }
 
 .add-task:hover,
