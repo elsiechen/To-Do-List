@@ -240,6 +240,9 @@ const deleteEvent = () => {
             console.log('delete event');
             RenderTaskList();
             renderProjects();
+            listEventListener();
+            eventListeners();
+            projectEventListener();
         });
     });
     
