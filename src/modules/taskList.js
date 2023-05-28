@@ -7,6 +7,9 @@ import Delete from './imgs/delete.png';
 import Close from './imgs/close-cross.png';
 import { renderProjects } from "./project";
 import { RenderTaskForm } from "./taskForm";
+import { formattedDate, task, cancelTaskBtnEvent, overlayEvent, formValidation} from "./task";
+import { eventListeners } from "./projectForm";
+import { projectEventListener } from "./project";
 
 let content = document.querySelector('.content');
 const addTaskBtn = document.querySelector('.add-task');
@@ -245,11 +248,12 @@ const deleteEvent = () => {
 
 const deleteProjectEvent = () => {
     const deleteProjectBtn = document.querySelector('.deleteProject');
+    
     deleteProjectBtn.addEventListener('click', () => {
         let projectList = getStorage('projectList');
         let currentProjectId = getStorage('currentProjectId');
         let listContainer = document.querySelector('.listContainer');
-
+        
         // Delete current project from projectList
         projectList.splice(currentProjectId, 1);
         // Update projectList in localStorage
@@ -283,14 +287,81 @@ const renderTaskFormToEdit = (e) => {
 
     // Change create btn text to edit
     createTaskBtn.innerHTML = 'EDIT TASK';
+    // Set data-task-id to edit task btn
+    createTaskBtn.setAttribute('data-task-id', taskId);
 };
 
+const processTaskInput = (taskId) => {
+    const title = document.querySelector('#title');
+    const details = document.querySelector('#details');
+    const dueDay = document.querySelector('#due');
+    const priority = document.querySelector('input[name="priority"]:checked');
+    
+    // const taskId = title.getAttribute('data-task-id');
+    
+    let editedTask = task(title.value,
+                         details.value,
+                         dueDay.value,
+                         priority.value);
+    
+    const formatted = formattedDate(editedTask.dueDay);
+    console.log(formatted);
+    saveToLocalStorage(editedTask, taskId);
+    RenderTaskList();
+    console.log('edit: render task list')
+    listEventListener();
+    console.log('edit: list event listener')
+};
+
+const saveToLocalStorage = (editedTask, taskId) => {
+    console.log(editedTask);
+    console.log(taskId)
+    let projectList = getStorage('projectList');
+    const currentProjectId = getOneValue('currentProjectId');
+    let currentProject = projectList[currentProjectId];
+    // Update editedTask in currentProject
+    currentProject.tasks[taskId] = editedTask;
+    // Update current project in projectList
+    projectList[currentProjectId] = currentProject;
+    // Override old projectList with new one
+    storage('projectList', projectList).override();
+};
+
+const editTaskBtnEvent = () => {
+    const createTaskBtn = document.querySelector('.createTaskBtn');
+    const addTaskContainer = document.querySelector('.add-task');
+    const overlay = document.querySelector('.overlay');
+    const taskFormContainer = document.querySelector('.taskFormContainer');
+
+    createTaskBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(e.target) // <button type="button" class="createTaskBtn">EDIT TASK</button>
+        const taskId = e.target.getAttribute('data-task-id');
+        
+        console.log(taskId)
+        console.log('edit task btn clicked')
+        // If form in invalid(return false), return
+        if(!formValidation()){
+            return;
+        }
+        processTaskInput(taskId);
+
+        addTaskContainer.style.display = 'block';
+        overlay.remove();
+        taskFormContainer.remove();
+    });
+};
+
+// Edit old task
 const editTaskEvent = () => {
     const editTaskBtns = document.querySelectorAll('.editTask');
+    
     editTaskBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             renderTaskFormToEdit(e);
-
+            editTaskBtnEvent();
+            cancelTaskBtnEvent();
+            overlayEvent();
         });
     });
     
@@ -303,6 +374,9 @@ const listEventListener = () => {
     deleteEvent();
     deleteProjectEvent();
     editTaskEvent();
+
+    eventListeners();
+    projectEventListener();
 };
 
 export { RenderTaskList, listEventListener };

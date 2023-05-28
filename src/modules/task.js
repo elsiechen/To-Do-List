@@ -123,7 +123,7 @@ const overlayEvent = () => {
         taskFormContainer.remove();
     });
 };
-
+// Create new task
 const taskEventListener = () => {
     const addTaskContainer = document.querySelector('.add-task');
 
@@ -212,5 +212,5 @@ const formValidation = () => {
     return true;
 };
 
-export { taskEventListener };
+export { formattedDate, task, taskEventListener, cancelTaskBtnEvent, overlayEvent, formValidation  };
 
