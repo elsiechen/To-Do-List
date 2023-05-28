@@ -488,5 +488,7 @@ textarea:focus {
     right: 0;
 }
 
-
+.closeBtn:hover {
+    cursor: pointer;
+}
 
