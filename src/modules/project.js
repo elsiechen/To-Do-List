@@ -97,7 +97,7 @@ const RenderAllTask = () => {
     // Clear project name and list content
     listContainer.innerHTML = '';
 
-    projectName.innerHTML = 'ALL TASK';
+    projectName.innerHTML = 'ALL TASKS';
     
     if(!projectList.length){
         lists.innerHTML = 'There is no project created so far.'
