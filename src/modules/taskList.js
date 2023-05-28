@@ -253,7 +253,7 @@ const deleteProjectEvent = () => {
         let projectList = getStorage('projectList');
         let currentProjectId = getStorage('currentProjectId');
         let listContainer = document.querySelector('.listContainer');
-        let addTaskBtn = document.querySelector('.add-div')
+        let addTaskBtn = document.querySelector('.add-task')
         
         // Delete current project from projectList
         projectList.splice(currentProjectId, 1);
@@ -264,6 +264,11 @@ const deleteProjectEvent = () => {
         renderProjects();
         // Clear listContainer
         listContainer.innerHTML = '';
+        // Remove add task btn
+        addTaskBtn.remove();
+        // Add event project listener
+        eventListeners();
+        projectEventListener();
     });
 };
 
