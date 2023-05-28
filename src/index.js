@@ -1,9 +1,10 @@
 import  { renderProjectForm, eventListeners }  from './modules/projectForm';
-import { renderProjects, projectEventListener } from './modules/project';
+import { renderProjects, projectEventListener, allTaskEventListener } from './modules/project';
 
 renderProjects();
 renderProjectForm();
 
+allTaskEventListener();
 eventListeners();
 projectEventListener();
 

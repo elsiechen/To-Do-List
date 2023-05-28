@@ -387,7 +387,8 @@ textarea:focus {
     gap: 1rem;
 }
 
-.projectNameDiv {
+.projectNameDiv,
+.projectDiv {
     display: flex;
     height: 5vh;
     background-color: rgb(10, 77, 104);
@@ -398,7 +399,14 @@ textarea:focus {
     border-radius: 5px;
 }
 
-.deleteProject {
+.projectDiv {
+    height: 4vh;
+    background-color: rgb(8, 131, 149);;
+    font-size: 1.3rem;
+}
+
+.deleteProject,
+.goToProject {
     margin-left: auto;
     font-weight: bold;
     color: rgb(10, 77, 104);
@@ -406,18 +414,26 @@ textarea:focus {
     border: none;
 }
 
-.deleteProject:hover {
+.deleteProject:hover,
+.goToProject:hover {
     background-color: rgb(238, 37, 37);
     color: white;
     cursor: pointer;
     border: 2px solid white;
 }
 
+.goToProject:hover {
+    background-color: rgb(10, 77, 104);
+    color: white;
+}
+
 .lists {
     margin-bottom: 1rem;
 }
 
-.listDiv {
+.listDiv,
+.subList,
+.subListDiv {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -429,13 +445,26 @@ textarea:focus {
     align-items: center;
 }
 
-.listDiv:hover {
+.subList {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+    border: none;
+}
+
+.listDiv:hover,
+.subList:hover {
     background-color: #edebeb;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.checkbox {
+.subListDiv {
+    flex-direction: row;
+    width: 95%;
+}
 
+.subCheckbox:hover {
+    cursor:grab;
 }
 
 .dueDay {

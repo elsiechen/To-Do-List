@@ -3,7 +3,8 @@ import  { hideForm }  from './projectForm';
 import { RenderAddTaskBtn } from './taskForm';
 import { taskEventListener } from './task';
 import { RenderTaskList, listEventListener } from './taskList';
-
+import circle from "./imgs/circle.png";
+import check from "./imgs/check.png";
 
 const project = (projectName) => {
     let tasks = [];
@@ -81,4 +82,111 @@ const projectEventListener = () => {
         });
     });
 };
-export { processProjectInput, renderProjects, projectEventListener };
+
+const RenderAllTask = () => {
+    let projectList = getStorage('projectList');
+    let listContainer = document.querySelector('.listContainer');
+    const projectNameDiv = document.createElement('div');
+    const projectName = document.createElement('div');
+    const lists = document.createElement('div');
+
+    projectNameDiv.classList.add('projectNameDiv');
+    projectName.classList.add('projectName');
+    lists.classList.add('lists');
+
+    // Clear project name and list content
+    listContainer.innerHTML = '';
+
+    projectName.innerHTML = 'ALL TASK';
+    
+    if(!projectList.length){
+        lists.innerHTML = 'There is no project created so far.'
+    }else{
+        for(let i = 0; i < projectList.length; i++){
+            let subProjectDiv = document.createElement('div');
+            let subProjectName = document.createElement('div');
+            const goToProject = document.createElement('button');
+            let subList = document.createElement('div');
+
+            subProjectDiv.classList.add('projectDiv');
+            subProjectName.classList.add('subProjectName');
+            goToProject.classList.add('goToProject');
+            subList.classList.add('subList');
+            // set data-project-id to identify specific project
+            goToProject.setAttribute('data-project-id', i);
+            // render innerHTML
+            subProjectName.innerHTML = projectList[i].name;
+            goToProject.innerHTML = 'Go To Project';
+
+            if(!projectList[i].tasks.length){
+                subList.innerHTML = 'This project has no task so far.';
+            }else{
+                for(let j = 0; j < projectList[i].tasks.length; j++){
+                    const subListDiv = document.createElement('div');
+                    const checkbox = document.createElement('img');
+                    const title = document.createElement('div');
+                    const dueDay = document.createElement('div');
+                    const priority = projectList[i].tasks[j].priority;
+                    let completed = projectList[i].tasks[j].completed;
+
+                    subListDiv.classList.add('subListDiv');
+                    checkbox.classList.add('subCheckbox');
+                    dueDay.classList.add('dueDay');
+
+                    checkbox.setAttribute('src', completed === true? check: circle);
+                    title.innerHTML = projectList[i].tasks[j].title;
+                    dueDay.innerHTML = projectList[i].tasks[j].dueDay;
+            
+                    subListDiv.appendChild(checkbox);
+                    subListDiv.appendChild(title);
+                    subListDiv.appendChild(dueDay);
+
+                    subList.appendChild(subListDiv);
+
+                    // Set priority style using borderLeftColor
+                    if(priority === 'HIGH') subListDiv.style.borderLeftColor = 'rgb(238, 37, 37)';
+                    if(priority === 'MEDIUM') subListDiv.style.borderLeftColor = 'rgb(8, 131, 149)';
+                    if(priority === 'LOW') subListDiv.style.borderLeftColor = 'rgb(255, 229, 105)';
+                }
+                
+            }
+
+            subProjectDiv.appendChild(subProjectName);
+            subProjectDiv.appendChild(goToProject);
+            lists.appendChild(subProjectDiv);
+            lists.appendChild(subList);
+            
+        }
+    }
+
+    projectNameDiv.appendChild(projectName);
+    listContainer.appendChild(projectNameDiv);
+    listContainer.appendChild(lists);
+};
+
+const GoToProjectEvent = ()=> {
+    const goToProjectBtns = document.querySelectorAll('.goToProject');
+    goToProjectBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const projectId = e.target.getAttribute('data-project-id');
+            const projects = document.querySelectorAll('.projectContainer');
+            const clickedProject = projects[projectId];
+            clickedProject.click();
+        });
+    });
+};
+
+const allTaskEventListener = () => {
+    const allTask = document.querySelector('.all');
+    allTask.addEventListener('click', () => {
+        // Remove add task btn
+        const addTaskBtn = document.querySelector('.add-task');
+        if(addTaskBtn) addTaskBtn.remove();
+
+        RenderAllTask();
+        GoToProjectEvent();
+    });
+    
+};
+
+export { processProjectInput, renderProjects, projectEventListener, allTaskEventListener };
