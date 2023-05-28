@@ -137,44 +137,6 @@ const taskEventListener = () => {
     });
 };
 
-// wait to be deleted
-const taskFormEventListener = () => {
-    const createTaskBtn = document.querySelector('.createTaskBtn');
-    const cancelTaskBtn = document.querySelector('.cancelTaskBtn');
-    const addTaskContainer = document.querySelector('.add-task');
-    const overlay = document.querySelector('.overlay');
-
-    const taskFormContainer = document.querySelector('.taskFormContainer');
-
-    createTaskBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        console.log('create task btn clicked')
-        // If form in invalid(return false), return
-        if(!formValidation()){
-            return;
-        }
-        processTaskInput();
-
-        addTaskContainer.style.display = 'block';
-        overlay.remove();
-        taskFormContainer.remove();
-    });
-
-    cancelTaskBtn.addEventListener('click', () => {
-        console.log('cancel task btn clicked')
-        addTaskContainer.style.display = 'block';
-        overlay.remove();
-        taskFormContainer.remove();
-    })
-    // if overlay is clicked, remove overlay and form 
-    overlay.addEventListener('click', () => {
-        addTaskContainer.style.display = 'block';
-        overlay.remove();
-        taskFormContainer.remove();
-    });
-};
-
 const formValidation = () => {
     const title = document.querySelector('#title');
     const dueDay = document.querySelector('#due');

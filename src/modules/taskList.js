@@ -253,6 +253,7 @@ const deleteProjectEvent = () => {
         let projectList = getStorage('projectList');
         let currentProjectId = getStorage('currentProjectId');
         let listContainer = document.querySelector('.listContainer');
+        let addTaskBtn = document.querySelector('.add-div')
         
         // Delete current project from projectList
         projectList.splice(currentProjectId, 1);
