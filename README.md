@@ -9,7 +9,7 @@ This is a TO-Do-List project written in JavaScript that allows you to manage tas
 - Features
 - Credits
 ## Demo
-Check out the [**live**]() demo.
+Check out the [**live**](https://elsiechen.github.io/To-Do-List/) demo.
 
 ## Technologies Used
 - HTML
