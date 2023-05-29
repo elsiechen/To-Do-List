@@ -1,8 +1,5 @@
 import { processProjectInput } from "./project";
 
-const sidebar = document.querySelector('.sidebar');
-const addProjectBtn = document.querySelector('.add-project');
-
 const ProjectForm = () => {
     const projectForm = document.createElement('div');
     const input = document.createElement('input');
@@ -58,7 +55,7 @@ function hideForm() {
     addProjectBtn.style.display = 'block';
     // show form
     projectForm.style.display = 'none';
-};
+}
 
 const eventListeners = () => {
     const addProjectBtn = document.querySelector('.add-project');
@@ -71,5 +68,4 @@ const eventListeners = () => {
     cancelBtn.addEventListener('click', hideForm);
 };
 
-
-export  { renderProjectForm, hideForm, eventListeners };
+export { renderProjectForm, hideForm, eventListeners };

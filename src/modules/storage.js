@@ -6,8 +6,8 @@ const storage = (key, value) => {
         // push new value to the "old" array
         // and stringify "old" array without creating new
         // array because push() will return number of element
-        // inside array 
-        // e.g: const array = [].push(object); 
+        // inside array
+        // e.g: const array = [].push(object);
         // console.log(array) returns 1
         getArray.push(value);
         const serializedArray = JSON.stringify(getArray);

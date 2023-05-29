@@ -1,5 +1,4 @@
-
-let content = document.querySelector('.content');
+const content = document.querySelector('.content');
 
 const RenderAddTaskBtn = () => {
     const addTaskContainerExist = document.querySelector('.add-task');
@@ -10,12 +9,12 @@ const RenderAddTaskBtn = () => {
     const addDiv = document.createElement('div');
 
     // Clear previous add task btn
-    if(addTaskContainerExist !== null){
+    if (addTaskContainerExist !== null) {
         addTaskContainerExist.remove();
     }
     // Add new add task btn
     addTaskContainer.classList.add('add-task');
-    addDiv.classList.add('add-div')
+    addDiv.classList.add('add-div');
     addDiv.innerHTML = 'ADD TASK';
     addTaskContainer.appendChild(svg);
     addTaskContainer.appendChild(addDiv);
@@ -25,9 +24,9 @@ const RenderAddTaskBtn = () => {
 
 const RenderTaskForm = () => {
     const overlay = document.createElement('div');
-    const taskFormContainer = document.createElement('div')
+    const taskFormContainer = document.createElement('div');
     
-    overlay.classList.add('overlay'); 
+    overlay.classList.add('overlay');
     taskFormContainer.classList.add('taskFormContainer');
 
     taskFormContainer.innerHTML = 
@@ -70,8 +69,5 @@ const RenderTaskForm = () => {
     content.appendChild(overlay);
     content.appendChild(taskFormContainer);
 };
-                    
-
-
 
 export { RenderAddTaskBtn, RenderTaskForm };

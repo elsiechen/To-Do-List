@@ -1,4 +1,4 @@
-import  { renderProjectForm, eventListeners }  from './modules/projectForm';
+import { renderProjectForm, eventListeners } from './modules/projectForm';
 import { renderProjects, projectEventListener, allTaskEventListener } from './modules/project';
 
 renderProjects();

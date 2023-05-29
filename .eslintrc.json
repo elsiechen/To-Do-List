@@ -11,5 +11,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "indent":"off",
+        "no-plusplus":"off"
     }
 }
