@@ -17,6 +17,7 @@ Check out the [**live**](https://elsiechen.github.io/To-Do-List/) demo.
 - JavaScript
 - Webpack
 - ES6 Modules
+- ESlint
 
 ## Features
 - Read all project tasks and and enter specific project in ALL TASK project, 
@@ -25,6 +26,7 @@ Check out the [**live**](https://elsiechen.github.io/To-Do-List/) demo.
 - Use webpack to organize and bundle modules including dependencies, image and assets into optimized files
 that can be efficiently loaded by web browsers.
 - Use ES6 Modules to organize code into separate files to make it easier to maintain and reuse code within project.
+- Use ESlint to perform JavaScript style guides
 
 
 ## Credits
