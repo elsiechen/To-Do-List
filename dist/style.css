@@ -522,3 +522,11 @@ textarea:focus {
 .closeBtn:hover {
   cursor: pointer;
 }
+
+#github {
+  transition: transform 1s ease;
+}
+
+#github:hover {
+  transform: rotate(365deg);
+}
