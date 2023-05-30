@@ -1,523 +1,524 @@
 @font-face {
-    font-family: 'Hug';
-    src: url('./fonts/hug.woff') format('woff'),
-         url('./fonts/hug.woff2') format('woff2');
+  font-family: "Hug";
+  src: url("./fonts/hug.woff") format("woff"),
+    url("./fonts/hug.woff2") format("woff2");
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    color: white;
-    cursor: grab;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  color: white;
+  cursor: grab;
 }
 
 body {
-    /* font-family: 'Concert One', cursive, monospace;
+  /* font-family: 'Concert One', cursive, monospace;
     font-family: 'Kanit', sans-serif; */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
-    background-color: rgb(8, 131, 149);
-    height: 15vh;
-    /* font-family: 'Concert One', cursive, monospace; */
-    font-family: 'Hug', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
+  background-color: rgb(8, 131, 149);
+  height: 15vh;
+  /* font-family: 'Concert One', cursive, monospace; */
+  font-family: "Hug", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 .logoContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 3rem;
-    font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 3rem;
+  font-weight: bolder;
 }
 
 .main {
-    min-height: 75vh;
-    display: flex;
+  min-height: 75vh;
+  display: flex;
 }
 
-.sidebar, 
+.sidebar,
 .home,
 .projectForm {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .sidebar {
-    width: 20vw;
-    min-height: 75vh;
-    background-color: rgb(10, 77, 104);
-    font-family: 'Alata', sans-serif;
-    font-size: 1rem;
-    padding: 1rem;
-    gap: 1.5rem;
+  width: 20vw;
+  min-height: 75vh;
+  background-color: rgb(10, 77, 104);
+  font-family: "Alata", sans-serif;
+  font-size: 1rem;
+  padding: 1rem;
+  gap: 1.5rem;
 }
 
 .title {
-    font-size: 1.3rem;
-    font-weight: bold;
-    display: block;
-    border-bottom: 2px solid white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: block;
+  border-bottom: 2px solid white;
 }
 
-.all, .add-project, footer{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.all,
+.add-project,
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .add-project svg,
 .add-project div {
-    display: inline;
+  display: inline;
 }
 
 .projects {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .add-project svg {
-    fill: white;
+  fill: white;
 }
 
 .content {
-    width: 80vw;
-    min-height: 75vh;
-    background-color: #E7E5E4;
-    color: black;
-    padding: 1rem;
+  width: 80vw;
+  min-height: 75vh;
+  background-color: #e7e5e4;
+  color: black;
+  padding: 1rem;
 }
 
 footer {
-    /* margin-top: auto; */
-    height: 10vh;
-    background-color:  rgb(8, 131, 149);
-    justify-content: center;
-    align-items: center;
-    font-family: 'Hug', sans-serif;
+  /* margin-top: auto; */
+  height: 10vh;
+  background-color: rgb(8, 131, 149);
+  justify-content: center;
+  align-items: center;
+  font-family: "Hug", sans-serif;
 }
 
 footer img {
-    width: 2rem;
-    height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 /* project form */
 .all,
 .add-project,
 .projectContainer {
-    padding: 10px;
+  padding: 10px;
 }
 
 .all:hover,
 .add-project:hover,
 .projectContainer:hover {
-    background-color: rgb(8, 131, 149);
-    cursor: pointer;
+  background-color: rgb(8, 131, 149);
+  cursor: pointer;
 }
 
 .projectContent {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .projectContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1rem;
 }
 
 .projectLength {
-    /* Put projectLength to the most right */
-    margin-left: auto;
+  /* Put projectLength to the most right */
+  margin-left: auto;
 }
 
 .projectForm {
-    padding: 0.5rem;
-    background-color: #E7E5E4;
-    border-radius: 5px;
+  padding: 0.5rem;
+  background-color: #e7e5e4;
+  border-radius: 5px;
 }
 
 .projectInput {
-    display: block;
-    padding: 0.5rem;
-    border: none;
-    width: 90%;
-    border-radius: 5px;
-    margin-bottom: 5px;
+  display: block;
+  padding: 0.5rem;
+  border: none;
+  width: 90%;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .btnContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
 }
 
 .createBtn,
 .cancelBtn {
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .createBtn {
-    background-color: rgb(8, 131, 149);
+  background-color: rgb(8, 131, 149);
 }
 
 .cancelBtn {
-    background-color: rgb(238, 37, 37);
+  background-color: rgb(238, 37, 37);
 }
 
 .createBtn:hover {
-    cursor: pointer;
-    color: rgb(8, 131, 149);
-    background-color: white;
-    border: 1px solid rgb(8, 131, 149);
+  cursor: pointer;
+  color: rgb(8, 131, 149);
+  background-color: white;
+  border: 1px solid rgb(8, 131, 149);
 }
 
 .cancelBtn:hover {
-    cursor: pointer;
-    color: rgb(238, 37, 37);
-    background-color: white;
-    border: 1px solid rgb(238, 37, 37);
+  cursor: pointer;
+  color: rgb(238, 37, 37);
+  background-color: white;
+  border: 1px solid rgb(238, 37, 37);
 }
 /* project content */
 .projectContainer {
-    display: flex;
+  display: flex;
 }
 
 .add-task {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    width: 8rem;
-    border-radius: 5px;
-    padding: 0.3rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 8rem;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
 }
-.add-task div{
-    display: inline;
+.add-task div {
+  display: inline;
 }
 
 .add-div {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .add-task:hover,
 .createTaskBtn,
 .cancelTaskBtn {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .add-task:hover {
-    color: white;
-    background-color: rgb(8, 131, 149);
+  color: white;
+  background-color: rgb(8, 131, 149);
 }
 
-.add-task:has(div:hover) div svg{
-    fill: white;
+.add-task:has(div:hover) div svg {
+  fill: white;
 }
 
 /* task form */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
 }
 
 .taskFormContainer,
 .renderDetailDiv {
-    color: black;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 1rem 1rem 0 1rem;
-    z-index: 10000;
-    width: 50vw;
-    border-radius: 5px;
+  color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 1rem 1rem 0 1rem;
+  z-index: 10000;
+  width: 50vw;
+  border-radius: 5px;
 }
 
 .form-control {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
-    width: 50vw;
-    border: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 50vw;
+  border: 2rem;
 }
 
 label[for="title"],
 label[for="details"],
 label[for="due"],
 label[for="priority"] {
-    display: block;
-    width: 100%;
-    font-size: 1rem;
-    color: rgb(146,145,145);
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  color: rgb(146, 145, 145);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .form-control div input[type="text"],
 .form-control div input[type="date"] {
-    display: block;
-    width: 95%;
-    border: 1px solid #dddcdc;
-    border-radius: 0.3rem;
-    height: 1.3rem;
-    padding: 0.3rem 0.5rem;
+  display: block;
+  width: 95%;
+  border: 1px solid #dddcdc;
+  border-radius: 0.3rem;
+  height: 1.3rem;
+  padding: 0.3rem 0.5rem;
 }
 
 .form-control div textarea {
-    display: block;
-    width: 95%;
-    border: 1px solid #dddcdc;
-    border-radius: 0.3rem;
-    padding: 0.3rem 0.5rem;
+  display: block;
+  width: 95%;
+  border: 1px solid #dddcdc;
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.5rem;
 }
 
 label[for="high"] {
-    color: rgb(238, 37, 37);
+  color: rgb(238, 37, 37);
 }
 
 label[for="medium"] {
-    color: rgb(8, 131, 149);
+  color: rgb(8, 131, 149);
 }
 
 label[for="low"] {
-    color: rgb(255, 229, 105);
+  color: rgb(255, 229, 105);
 }
 
 /* use ':has' pseudo-class to change label color when input:focus */
-.form-control>div:has(input:focus) label,
-.form-control>div:has(textarea:focus) label,
-.form-control>div:has(.priority>input:focus) label{
-    color: black;
+.form-control > div:has(input:focus) label,
+.form-control > div:has(textarea:focus) label,
+.form-control > div:has(.priority > input:focus) label {
+  color: black;
 }
 
 input:focus,
 textarea:focus {
-    box-shadow: 2px 2px 3px silver;
+  box-shadow: 2px 2px 3px silver;
 }
 
 .form-control div .priority input[type="radio"]:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .taskBtnContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-    max-width: 97%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  max-width: 97%;
 }
 
 .createTaskBtn,
 .cancelTaskBtn {
-    padding: 0.7rem 2.5rem;
-    font-size: 0.8rem;
-    font-weight: bolder;
-    box-shadow: 2px 2px 3px silver;
-    margin: 1rem 0 2rem 0;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    
+  padding: 0.7rem 2.5rem;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  box-shadow: 2px 2px 3px silver;
+  margin: 1rem 0 2rem 0;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .createTaskBtn {
-    background-color:  rgb(8, 131, 149);
+  background-color: rgb(8, 131, 149);
 }
 
 .cancelTaskBtn {
-    background-color:  rgb(238, 37, 37);
+  background-color: rgb(238, 37, 37);
 }
 
-.createTaskBtn:hover { 
-    color: rgb(8, 131, 149);
-    background-color: white;
-    border: 1px solid rgb(8, 131, 149);
-} 
+.createTaskBtn:hover {
+  color: rgb(8, 131, 149);
+  background-color: white;
+  border: 1px solid rgb(8, 131, 149);
+}
 
 .cancelTaskBtn:hover {
-    color:  rgb(238, 37, 37);
-    background-color: white;
-    border: 1px solid  rgb(238, 37, 37);
-} 
+  color: rgb(238, 37, 37);
+  background-color: white;
+  border: 1px solid rgb(238, 37, 37);
+}
 
 .titleError,
 .dueError {
-    color: rgb(238, 37, 37);
-    font-size: 0.5rem;
-    font-weight: bold;
+  color: rgb(238, 37, 37);
+  font-size: 0.5rem;
+  font-weight: bold;
 }
 
 /* task list */
-.listContainer,.lists {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 1rem;
+.listContainer,
+.lists {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .projectNameDiv,
 .projectDiv {
-    display: flex;
-    height: 5vh;
-    background-color: rgb(10, 77, 104);
-    font-size: 2rem;
-    font-weight: bolder;
-    padding: 1rem;
-    color: white;
-    border-radius: 5px;
+  display: flex;
+  height: 5vh;
+  background-color: rgb(10, 77, 104);
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 1rem;
+  color: white;
+  border-radius: 5px;
 }
 
 .projectDiv {
-    height: 4vh;
-    background-color: rgb(8, 131, 149);;
-    font-size: 1.3rem;
+  height: 4vh;
+  background-color: rgb(8, 131, 149);
+  font-size: 1.3rem;
 }
 
 .deleteProject,
 .goToProject {
-    margin-left: auto;
-    font-weight: bold;
-    color: rgb(10, 77, 104);
-    border-radius: 5px;
-    border: none;
+  margin-left: auto;
+  font-weight: bold;
+  color: rgb(10, 77, 104);
+  border-radius: 5px;
+  border: none;
 }
 
 .deleteProject:hover,
 .goToProject:hover {
-    background-color: rgb(238, 37, 37);
-    color: white;
-    cursor: pointer;
-    border: 2px solid white;
+  background-color: rgb(238, 37, 37);
+  color: white;
+  cursor: pointer;
+  border: 2px solid white;
 }
 
 .goToProject:hover {
-    background-color: rgb(10, 77, 104);
-    color: white;
+  background-color: rgb(10, 77, 104);
+  color: white;
 }
 
 .lists {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .listDiv,
 .subList,
 .subListDiv {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    border: 1px solid black;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border-left-width: 5px;
-    height: 1.5rem;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border-left-width: 5px;
+  height: 1.5rem;
+  align-items: center;
 }
 
 .subList {
-    flex-direction: column;
-    height: auto;
-    align-items: flex-start;
-    border: none;
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  border: none;
 }
 
 .listDiv:hover,
 .subList:hover {
-    background-color: #edebeb;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color: #edebeb;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .subListDiv {
-    flex-direction: row;
-    min-width: 50%;
+  flex-direction: row;
+  min-width: 50%;
 }
 
 .subCheckbox:hover {
-    cursor:grab;
+  cursor: grab;
 }
 
 .dueDay {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .detail {
-    border-radius: 5px;
-    background-color: #E7E5E4;
-    border: 1px solid black;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 5px;
+  background-color: #e7e5e4;
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .detail:hover {
-    background-color: rgb(8, 131, 149);
-    color: white;
-    border: none;
+  background-color: rgb(8, 131, 149);
+  color: white;
+  border: none;
 }
 
 .editTask,
 .deleteTask {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .checkbox:hover,
 .detail:hover,
 .editTask:hover,
 .deleteTask:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .editTask:hover,
 .deleteTask:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* render task detail */
-.detailContainer{
-    position: relative;
-    padding: 0 0 1rem;
+.detailContainer {
+  position: relative;
+  padding: 0 0 1rem;
 }
 
 .detailContainer > div {
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
 .closeBtn {
-    position: absolute;
-    top: -1rem;
-    right: 0;
+  position: absolute;
+  top: -1rem;
+  right: 0;
 }
 
 .closeBtn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
